@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <metainfo>
     <schemaVersion>2.0</schemaVersion>
     <services>
@@ -6,11 +5,11 @@
             <name>Cassandra</name>
             <displayName>Cassandra</displayName>
             <comment>Distributed database</comment>
-            <version>2.1</version>
+            <version>3.9</version>
             <components>
-               <component>
-                    <name>Cluster-Hosts</name>
-                    <displayName>Cluster Nodes</displayName>
+                <component>
+                    <name>CASSANDRA_NODE</name>
+                    <displayName>Cassandra Node</displayName>
                     <category>SLAVE</category>
                     <cardinality>1+</cardinality>
                     <commandScript>
@@ -20,15 +19,15 @@
                     </commandScript>
                 </component>
                 <component>
-                  <name>Cluster_client</name>
-                  <displayName>Cluster Client</displayName>
-                  <category>CLIENT</category>
-                  <cardinality>0+</cardinality>
-                  <commandScript>
-                    <script>scripts/clients.py</script>
-                    <scriptType>PYTHON</scriptType>
-                    <timeout>600</timeout>
-                  </commandScript>
+                    <name>CASSANDRA_CLIENT</name>
+                    <displayName>Cassandra Client</displayName>
+                    <category>CLIENT</category>
+                    <cardinality>0+</cardinality>
+                    <commandScript>
+                        <script>scripts/clients.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>600</timeout>
+                    </commandScript>
                 </component>
             </components>
             <osSpecifics>
@@ -36,10 +35,10 @@
                     <osFamily>any</osFamily>
                     <packages>
                         <package>
-                            <name>dsc21</name>
+                            <name>datastax-ddc</name>
                         </package>
                         <package>
-                            <name>opscenter</name>
+                            <name>datastax-ddc-tools</name>
                         </package>
                     </packages>
                 </osSpecific>
@@ -50,10 +49,9 @@
                 <timeout>300</timeout>
             </commandScript>
             <configuration-dependencies>
-                  <config-type>cassandra-env</config-type>
+                <config-type>cassandra-env</config-type>
             </configuration-dependencies>
             <restartRequiredAfterChange>true</restartRequiredAfterChange>
-
         </service>
     </services>
 </metainfo>

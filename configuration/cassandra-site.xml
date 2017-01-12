@@ -225,7 +225,12 @@
 	</property>
 	<property>
 		<name>broadcast_rpc_address</name>
-		<value>1.2.3.4</value>
+		<value>{host_name}</value>
+		<description></description>
+	</property>
+	<property>
+		<name>rpc_interface</name>
+		<value>eth0</value>
 		<description></description>
 	</property>
 	<property>
@@ -452,6 +457,7 @@
 		<name>seed_provider_parameters_seeds</name>
 		<value></value>
 		<description>Provide values in quotes</description>
+		<on-ambari-upgrade add="true"/>
 	</property>
 	<property>
 		<name>seed_provider_class_name</name>
@@ -477,5 +483,10 @@
 		<name>client_encryption_options_keystore_password</name>
 		<value>cassandra</value>
 		<description></description>
+	</property>
+	<property>
+		<name>hints_directory</name>
+		<value>/var/lib/cassandra/hints</value>
+		<description>Directory where Cassandra should store hints</description>
 	</property>
 </configuration>

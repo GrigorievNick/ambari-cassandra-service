@@ -26,7 +26,8 @@ def cassandra():
     Directory([params.log_dir, params.pid_dir, params.conf_dir],
               owner=params.cassandra_user,
               group=params.user_group,
-              recursive=True
+              recursive_ownership=True,
+              create_parents=True
           )
     configurations = params.config['configurations']['cassandra-site']
 

@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-from resource_management.libraries.functions.version import format_hdp_stack_version, compare_versions
+from resource_management.libraries.functions.version import format_stack_version, compare_versions
 from resource_management import *
 import commands
 
@@ -82,7 +82,14 @@ start_rpc=config['configurations']['cassandra-site']['start_rpc']
 
 rpc_address=config['configurations']['cassandra-site']['rpc_address1']
 rpc_port=config['configurations']['cassandra-site']['rpc_port']
-broadcast_rpc_address=config['configurations']['cassandra-site']['broadcast_rpc_address']
+
+host_name = config['hostname'].lower()
+if len(host_name) > 0:
+    broadcast_rpc_address=host_name
+else:
+    broadcast_rpc_address=config['configurations']['cassandra-site']['broadcast_rpc_address']
+rpc_interface=config['configurations']['cassandra-site']['rpc_interface']
+
 rpc_keepalive=config['configurations']['cassandra-site']['rpc_keepalive']
 rpc_server_type=config['configurations']['cassandra-site']['rpc_server_type']
 thrift_framed_transport_size_in_mb=config['configurations']['cassandra-site']['thrift_framed_transport_size_in_mb']
@@ -127,5 +134,7 @@ inter_dc_tcp_nodelay = config['configurations']['cassandra-site']['inter_dc_tcp_
 key_cache_size_in_mb = config['configurations']['cassandra-site']['key_cache_size_in_mb']
 counter_cache_size_in_mb = config['configurations']['cassandra-site']['counter_cache_size_in_mb']
 seed_provider_class_name = config['configurations']['cassandra-site']['seed_provider_class_name']
-seed_provider_parameters_seeds = config['configurations']['cassandra-site']['seed_provider_parameters_seeds']
 index_summary_capacity_in_mb = config['configurations']['cassandra-site']['index_summary_capacity_in_mb']
+hints_directory =  config['configurations']['cassandra-site']['hints_directory']
+
+service_name = config['serviceName']
