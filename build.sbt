@@ -6,8 +6,6 @@ version := "3.9"
 
 scalaVersion := "2.12.1"
 
-val buildVersion = version + "-build-" =sys.env.getOrElse("BUILD_NUMBER", "local")
-
 val metaInfoConfig: String = "metainfo.xml"
 
 lazy val `ambari-cassandra-service` = project
@@ -18,6 +16,7 @@ lazy val `ambari-cassandra-service` = project
     mappings in(Universal, packageBin) ++= directory("configuration"),
     mappings in(Universal, packageBin) ++= directory("package"),
     mappings in(Universal, packageBin) += {
+      val buildVersion = version.value + "-build-" + sys.env.getOrElse("BUILD_NUMBER", "local")
       val content =
         IO.read(file(metaInfoConfig)).replaceAll("<version>.*</version>", s"<version>$buildVersion</version>")
       val templateFile = file(target.value.getAbsolutePath + "/" + metaInfoConfig)
