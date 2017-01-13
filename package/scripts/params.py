@@ -135,7 +135,16 @@ key_cache_size_in_mb = config['configurations']['cassandra-site']['key_cache_siz
 counter_cache_size_in_mb = config['configurations']['cassandra-site']['counter_cache_size_in_mb']
 seed_provider_class_name = config['configurations']['cassandra-site']['seed_provider_class_name']
 index_summary_capacity_in_mb = config['configurations']['cassandra-site']['index_summary_capacity_in_mb']
-seed_provider_parameters_seeds = config['configurations']['cassandra-site']['seed_provider_parameters_seeds']
+if 'cassandra_node_hosts' in config['clusterHostInfo'] and \
+        len(config['clusterHostInfo']['cassandra_node_hosts']) > 0:
+    cassandra_node_hosts = config['clusterHostInfo']['hive_metastore_hosts']
+    cassandra_node_hosts.sort()
+    cassandra_node_hosts_arr_as_string = []
+    for cassandra_node_host in cassandra_node_hosts:
+        cassandra_node_hosts_arr_as_string.append(format("{cassandra_node_host}"))
+    seed_provider_parameters_seeds = ','.join(cassandra_node_hosts_arr_as_string)
+else:
+    seed_provider_parameters_seeds = config['configurations']['cassandra-site']['seed_provider_parameters_seeds']
 hints_directory =  config['configurations']['cassandra-site']['hints_directory']
 
 service_name = config['serviceName']
