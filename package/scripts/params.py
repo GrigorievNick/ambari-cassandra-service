@@ -135,6 +135,7 @@ key_cache_size_in_mb = config['configurations']['cassandra-site']['key_cache_siz
 counter_cache_size_in_mb = config['configurations']['cassandra-site']['counter_cache_size_in_mb']
 seed_provider_class_name = config['configurations']['cassandra-site']['seed_provider_class_name']
 index_summary_capacity_in_mb = config['configurations']['cassandra-site']['index_summary_capacity_in_mb']
+seed_provider_parameters_seeds = config['configurations']['cassandra-site']['seed_provider_parameters_seeds']
 hints_directory =  config['configurations']['cassandra-site']['hints_directory']
 
 service_name = config['serviceName']
