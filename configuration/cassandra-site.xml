@@ -214,18 +214,8 @@
 		<description></description>
 	</property>
 	<property>
-		<name>rpc_address1</name>
-		<value>0.0.0.0</value>
-		<description></description>
-	</property>
-	<property>
 		<name>rpc_port</name>
 		<value>9160</value>
-		<description></description>
-	</property>
-	<property>
-		<name>broadcast_rpc_address</name>
-		<value>{host_name}</value>
 		<description></description>
 	</property>
 	<property>
@@ -455,7 +445,7 @@
 
 	<property>
 		<name>seed_provider_parameters_seeds</name>
-		<value></value>
+		<value>dummy_name_service_discovery_expected</value>
 		<description>Provide values in quotes</description>
 		<on-ambari-upgrade add="true"/>
 	</property>

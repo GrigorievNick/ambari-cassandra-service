@@ -80,7 +80,7 @@ start_native_transport=config['configurations']['cassandra-site']['start_native_
 native_transport_port=config['configurations']['cassandra-site']['native_transport_port']
 start_rpc=config['configurations']['cassandra-site']['start_rpc']
 
-rpc_address=config['configurations']['cassandra-site']['rpc_address1']
+# rpc_address=config['configurations']['cassandra-site']['rpc_address1']
 rpc_port=config['configurations']['cassandra-site']['rpc_port']
 
 host_name = config['hostname'].lower()
