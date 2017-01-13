@@ -137,7 +137,7 @@ seed_provider_class_name = config['configurations']['cassandra-site']['seed_prov
 index_summary_capacity_in_mb = config['configurations']['cassandra-site']['index_summary_capacity_in_mb']
 if 'cassandra_node_hosts' in config['clusterHostInfo'] and \
         len(config['clusterHostInfo']['cassandra_node_hosts']) > 0:
-    cassandra_node_hosts = config['clusterHostInfo']['hive_metastore_hosts']
+    cassandra_node_hosts = config['clusterHostInfo']['cassandra_node_hosts']
     cassandra_node_hosts.sort()
     cassandra_node_hosts_arr_as_string = []
     for cassandra_node_host in cassandra_node_hosts:
