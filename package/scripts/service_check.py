@@ -23,7 +23,6 @@ class ServiceCheck(Script):
     def service_check(self, env):
         import params
         env.set_params(params)
-        Execute("nodetool status", logoutput=True)
         seeds = params.seed_provider_parameters_seeds.strip().split(",")
         host=seeds[0]
         cmdfile=format("/tmp/cmds")
@@ -37,6 +36,7 @@ class ServiceCheck(Script):
                                   "DROP KEYSPACE smokedemotest;\n\n")
         )
         Execute(format("cqlsh {host} {native_transport_port} -f {cmdfile}"))
+        Execute("nodetool status", logoutput=True)
 
 
 if __name__ == "__main__":
