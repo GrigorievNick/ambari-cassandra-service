@@ -13,7 +13,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-from resource_management.libraries.functions.version import format_stack_version, compare_versions
 from resource_management import *
 import commands
 
