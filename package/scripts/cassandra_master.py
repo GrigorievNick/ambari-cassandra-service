@@ -52,8 +52,6 @@ class Cassandra_Master(Script):
         Execute(start_opscenter)
         print 'Start the Master'
     def status(self, env):
-        import params
-        env.set_params(params)
         status_cmd = format("service cassandra status")
         Execute(status_cmd)
         print 'Status of the Master'
